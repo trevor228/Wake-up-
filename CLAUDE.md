@@ -1,3 +1,19 @@
+## HIGHEST PRIORITY UPDATE — browser-only access from work computer (supersedes older Tailscale Serve-only instructions)
+
+**The user must be able to open a normal, secure HTTPS webpage from a company-managed Windows work computer in Chrome/Edge with NO client software, Tailscale/VPN installation, admin rights, or browser extensions.** The same responsive page should work from iPhone over cellular. Do not rely on Tailscale Serve alone for this primary use case. No attempts to bypass employer IT/security policy.
+
+Build a unified Wake Up browser dashboard that authenticates the user, shows independently verified PC status, provides a Wake button, and links out to the Parsec browser client for CAD and to Moonlight for gaming on supported personal devices. Do not falsely promise embedded Parsec/Moonlight streaming or that their services are accessible when blocked on work hardware.
+
+Architect a stable browser-accessible secure connection to the always-on spare laptop, preferably outbound-only from home and without router port forwarding, additional hardware, paid subscriptions or new paid domains. Evaluate a free-hostname authenticated HTTPS command relay polled by the spare laptop (e.g. Cloudflare Workers free tier) versus Cloudflare Tunnel + Access (note: stable self-hosted hostname normally requires a domain). A private Tailscale Serve route may be optional for personal devices, but cannot be the ONLY solution. Do NOT use public unauthenticated port forwarding, temporary Quick Tunnel URLs as production endpoints, or expose arbitrary remote commands.
+
+Use strong authentication (ideally identity verification or passkeys/TOTP), secure session cookies, CSRF/replay protection, rate limiting, short-lived wake-only requests, local secret storage and HTTPS. Never commit MAC/IP addresses, personal info, keys, credentials or hostnames to this PUBLIC repo. The relay must only authorize one fixed Wake-on-LAN action, never arbitrary shell commands or destinations. Acknowledge 'wake request sent' rather than claiming PC is awake without verifying.
+
+Work-computer usage must be browser-only and respect employer policy; access may still be blocked by enterprise filtering. The gaming PC's remote video stream will still depend on separate Parsec browser or Moonlight native apps as supported. The installed tray app on the HOME spare laptop keeps full one-click ON/OFF, restores the laptop's original sleep/lid settings on OFF, and can be developed on gaming PC then packaged for spare laptop.
+
+At minimum, provide functioning secure browser dashboard, functional wake relay path, tests, Windows self-contained packaged app, setup instructions, real-world iPhone cellular and work-browser smoke tests (mark tests unverified until actually performed). If no truly $0 secure stable path can be implemented, disclose options and exact costs before selecting; do not silently fall back to a paid service.
+
+---
+
 # Wake Up — Claude Code implementation instructions
 
 ## Objective
