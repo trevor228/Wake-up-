@@ -6,7 +6,7 @@ Build a complete Windows 10/11 utility named **Wake Up**, developed on the user'
 **Do not stop at a plan or mockup. Implement, test, build, package, and document the application.**
 
 ## Confirmed facts
-- The gaming desktop is connected by Ethernet to a SandyNet home router.
+- The target desktop is connected by Ethernet to a home router.
 - Local Wake-on-LAN from an iPhone has **already been proven to work** after enabling LAN wake in the WoL app.
 - Gaming PC can be in S3 sleep and should stay asleep when not in use.
 - The spare laptop runs Windows (version not yet established) and is a normal everyday laptop.
